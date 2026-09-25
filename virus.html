@@ -1,0 +1,2850 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Bro 🎂</title>
+
+
+<style>
+
+/* =========================================
+   BASIC
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    font-family: Arial, sans-serif;
+
+    text-align: center;
+
+    color: white;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #17465a,
+            #07141b 70%
+        );
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.container {
+
+    max-width: 800px;
+
+    margin: auto;
+
+    padding: 40px 20px 70px;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+/* =========================================
+   HEADINGS
+========================================= */
+
+h1 {
+
+    font-size: 44px;
+
+    color: #00e5ff;
+
+    text-shadow:
+        0 0 10px #00e5ff,
+        0 0 25px #008cff;
+
+    margin-bottom: 10px;
+}
+
+
+/* =========================================
+   PHOTO
+========================================= */
+
+.photo {
+
+    width: 300px;
+
+    height: 300px;
+
+    object-fit: cover;
+
+    border-radius: 25px;
+
+    border: 5px solid #00e5ff;
+
+    box-shadow:
+        0 0 20px #00e5ff,
+        0 0 50px rgba(0,229,255,0.4);
+
+    margin: 25px auto;
+
+    display: block;
+
+    animation: appear 0.7s ease;
+}
+
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+#message {
+
+    font-size: 21px;
+
+    line-height: 1.7;
+
+    min-height: 100px;
+
+    max-width: 700px;
+
+    margin: 20px auto;
+
+    animation: appear 0.7s ease;
+}
+
+
+/* =========================================
+   READING NOTICE
+========================================= */
+
+#readingNotice {
+
+    min-height: 35px;
+
+    margin: 10px auto 15px;
+
+    color: #ffd700;
+
+    font-size: 16px;
+
+    font-weight: bold;
+}
+
+#readingNotice.ready {
+
+    color: #2ed573;
+}
+
+#readingNotice.warning {
+
+    color: #ff4757;
+
+    animation: warningShake 0.4s ease;
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+button {
+
+    border: none;
+
+    padding: 16px 35px;
+
+    border-radius: 40px;
+
+    background:
+        linear-gradient(
+            45deg,
+            #00e5ff,
+            #008cff
+        );
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 20px rgba(0,229,255,0.6);
+
+    transition: 0.3s;
+}
+
+button:hover {
+
+    transform: scale(1.08);
+
+    box-shadow:
+        0 0 30px #00e5ff,
+        0 0 60px #008cff;
+}
+
+
+/* =========================================
+   DISABLED NEXT
+========================================= */
+
+#nextButton.disabled {
+
+    cursor: not-allowed;
+
+    opacity: 0.45;
+
+    transform: none;
+
+    box-shadow:
+        0 0 10px rgba(0,229,255,0.2);
+}
+
+#nextButton.disabled:hover {
+
+    transform: none;
+
+    box-shadow:
+        0 0 10px rgba(0,229,255,0.2);
+}
+
+
+/* =========================================
+   QUIZ
+========================================= */
+
+#quiz {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 30px 20px;
+
+    position: relative;
+
+    z-index: 10;
+}
+
+
+.quiz-box {
+
+    width: 100%;
+
+    max-width: 600px;
+
+    padding: 35px 25px;
+
+    border-radius: 25px;
+
+    background:
+        rgba(0, 20, 30, 0.88);
+
+    border: 2px solid #00e5ff;
+
+    box-shadow:
+        0 0 20px rgba(0,229,255,0.5),
+        0 0 50px rgba(0,140,255,0.25);
+
+    animation: appear 0.7s ease;
+}
+
+
+.quiz-box h1 {
+
+    font-size: 34px;
+
+    margin-bottom: 15px;
+}
+
+
+#question {
+
+    font-size: 24px;
+
+    line-height: 1.5;
+
+    margin: 25px 0;
+}
+
+
+/* =========================================
+   ANSWER INPUT
+========================================= */
+
+#answer {
+
+    width: 90%;
+
+    max-width: 400px;
+
+    padding: 14px 18px;
+
+    border: 2px solid #00e5ff;
+
+    border-radius: 30px;
+
+    background: #07141b;
+
+    color: white;
+
+    font-size: 17px;
+
+    text-align: center;
+
+    outline: none;
+}
+
+#answer:focus {
+
+    box-shadow:
+        0 0 15px #00e5ff;
+}
+
+
+#quizButton {
+
+    margin-top: 20px;
+}
+
+
+#quizMessage {
+
+    min-height: 45px;
+
+    margin-top: 15px;
+
+    font-size: 17px;
+
+    font-weight: bold;
+}
+
+
+.correct {
+
+    color: #2ed573;
+}
+
+
+.wrong {
+
+    color: #ff4757;
+}
+
+
+/* =========================================
+   START BUTTONS
+========================================= */
+
+.intro-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    margin-top: 25px;
+
+    flex-wrap: wrap;
+}
+
+
+.yes-button {
+
+    background:
+        linear-gradient(
+            45deg,
+            #20bf55,
+            #2ed573
+        );
+
+    box-shadow:
+        0 0 20px rgba(46,213,115,0.6);
+}
+
+
+.yes-button:hover {
+
+    box-shadow:
+        0 0 30px #2ed573,
+        0 0 50px #20bf55;
+}
+
+
+.no-button {
+
+    background:
+        linear-gradient(
+            45deg,
+            #ff4757,
+            #c0392b
+        );
+
+    box-shadow:
+        0 0 20px rgba(255,71,87,0.6);
+}
+
+
+.no-button:hover {
+
+    box-shadow:
+        0 0 30px #ff4757,
+        0 0 50px #c0392b;
+}
+
+
+/* =========================================
+   START SCREEN
+========================================= */
+
+#startScreen {
+
+    display: block;
+}
+
+
+#startQuestion {
+
+    font-size: 25px;
+
+    line-height: 1.6;
+
+    margin: 25px auto;
+
+    max-width: 500px;
+}
+
+
+#startMessage {
+
+    min-height: 30px;
+
+    margin-top: 15px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================
+   COUNTDOWN
+========================================= */
+
+#countdownScreen {
+
+    display: none;
+
+    min-height: 100vh;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-direction: column;
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    background:
+        radial-gradient(
+            circle,
+            #17465a,
+            #07141b 75%
+        );
+}
+
+
+#countdownNumber {
+
+    font-size: 130px;
+
+    font-weight: bold;
+
+    color: #00e5ff;
+
+    text-shadow:
+        0 0 20px #00e5ff,
+        0 0 50px #008cff;
+
+    animation:
+        countdownPop 0.8s ease;
+}
+
+
+#countdownText {
+
+    font-size: 28px;
+
+    color: #ffd700;
+}
+
+
+/* =========================================
+   FINAL
+========================================= */
+
+#final {
+
+    display: none;
+
+    padding: 20px;
+
+    animation:
+        finalAppear 1.5s ease;
+}
+
+
+#final h2 {
+
+    font-size: 42px;
+
+    color: #ffd700;
+
+    text-shadow:
+        0 0 15px #ffd700,
+        0 0 30px #ff9900;
+}
+
+
+#final p {
+
+    font-size: 21px;
+
+    line-height: 1.7;
+}
+
+
+#thankYou {
+
+    margin-top: 40px;
+
+    font-size: 16px;
+
+    color: #bdefff;
+
+    opacity: 0;
+
+    animation:
+        thankYouAppear
+        2s ease
+        1.5s forwards;
+}
+
+
+/* =========================================
+   BIG CELEBRATION
+========================================= */
+
+#bigCelebration {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,229,255,0.25),
+            rgba(7,20,27,0.98)
+        );
+
+    z-index: 200;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-direction: column;
+}
+
+
+#bigCelebration h1 {
+
+    font-size: 70px;
+
+    margin: 0 20px;
+
+    animation:
+        celebrationPop 1s ease,
+        glowPulse 1.5s infinite alternate;
+}
+
+
+#bigCelebration p {
+
+    font-size: 28px;
+
+    color: #ffd700;
+
+    animation:
+        appear 1.5s ease;
+}
+
+
+/* =========================================
+   BALLOONS
+========================================= */
+
+.balloon {
+
+    position: fixed;
+
+    bottom: -120px;
+
+    width: 55px;
+
+    height: 70px;
+
+    border-radius: 50%;
+
+    animation:
+        float 9s infinite;
+
+    z-index: 1;
+}
+
+
+.b1 {
+
+    left: 5%;
+
+    background: #ff4757;
+}
+
+
+.b2 {
+
+    left: 25%;
+
+    background: #1e90ff;
+
+    animation-delay: 2s;
+}
+
+
+.b3 {
+
+    left: 50%;
+
+    background: #2ed573;
+
+    animation-delay: 4s;
+}
+
+
+.b4 {
+
+    left: 75%;
+
+    background: #ffa502;
+
+    animation-delay: 1s;
+}
+
+
+.b5 {
+
+    left: 90%;
+
+    background: #a55eea;
+
+    animation-delay: 3s;
+}
+
+
+/* =========================================
+   STARS
+========================================= */
+
+.star {
+
+    position: fixed;
+
+    font-size: 25px;
+
+    z-index: 1;
+
+    animation:
+        twinkle 2s infinite alternate;
+}
+
+
+.star1 {
+
+    top: 10%;
+
+    left: 10%;
+}
+
+
+.star2 {
+
+    top: 20%;
+
+    right: 10%;
+}
+
+
+.star3 {
+
+    top: 60%;
+
+    left: 5%;
+}
+
+
+.star4 {
+
+    top: 70%;
+
+    right: 7%;
+}
+
+
+.star5 {
+
+    top: 40%;
+
+    right: 15%;
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.navigation {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 25px;
+
+    flex-wrap: wrap;
+}
+
+
+.back-button {
+
+    background:
+        linear-gradient(
+            45deg,
+            #636e72,
+            #2d3436
+        );
+
+    box-shadow:
+        0 0 15px rgba(255,255,255,0.2);
+}
+
+
+.back-button:hover {
+
+    box-shadow:
+        0 0 25px rgba(255,255,255,0.4);
+}
+
+
+.next-button {
+
+    background:
+        linear-gradient(
+            45deg,
+            #00e5ff,
+            #008cff
+        );
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes appear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(0.8)
+            translateY(20px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+}
+
+
+@keyframes finalAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(0.3)
+            rotate(-5deg);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            rotate(0deg);
+    }
+}
+
+
+@keyframes float {
+
+    0% {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    20% {
+
+        opacity: 1;
+    }
+
+    100% {
+
+        transform:
+            translateY(-120vh)
+            rotate(25deg);
+
+        opacity: 0;
+    }
+}
+
+
+@keyframes twinkle {
+
+    from {
+
+        opacity: 0.2;
+
+        transform:
+            scale(0.8);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1.2);
+    }
+}
+
+
+@keyframes countdownPop {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(2);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+}
+
+
+@keyframes celebrationPop {
+
+    0% {
+
+        transform:
+            scale(0);
+
+        opacity: 0;
+    }
+
+    60% {
+
+        transform:
+            scale(1.3);
+
+        opacity: 1;
+    }
+
+    100% {
+
+        transform:
+            scale(1);
+
+        opacity: 1;
+    }
+}
+
+
+@keyframes glowPulse {
+
+    from {
+
+        text-shadow:
+            0 0 20px #00e5ff,
+            0 0 40px #008cff;
+    }
+
+    to {
+
+        text-shadow:
+            0 0 40px #00e5ff,
+            0 0 80px #008cff,
+            0 0 120px #ffffff;
+    }
+}
+
+
+@keyframes thankYouAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes warningShake {
+
+    0% {
+
+        transform:
+            translateX(0);
+    }
+
+    25% {
+
+        transform:
+            translateX(-6px);
+    }
+
+    50% {
+
+        transform:
+            translateX(6px);
+    }
+
+    75% {
+
+        transform:
+            translateX(-6px);
+    }
+
+    100% {
+
+        transform:
+            translateX(0);
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    h1 {
+
+        font-size: 32px;
+    }
+
+
+    .quiz-box h1 {
+
+        font-size: 28px;
+    }
+
+
+    #question {
+
+        font-size: 21px;
+    }
+
+
+    .photo {
+
+        width: 85vw;
+
+        height: 85vw;
+
+        max-width: 300px;
+
+        max-height: 300px;
+    }
+
+
+    #message {
+
+        font-size: 18px;
+    }
+
+
+    #final h2 {
+
+        font-size: 32px;
+    }
+
+
+    #bigCelebration h1 {
+
+        font-size: 45px;
+    }
+
+
+    #bigCelebration p {
+
+        font-size: 22px;
+    }
+
+
+    #countdownNumber {
+
+        font-size: 90px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     BACKGROUND DECORATIONS
+========================================= -->
+
+<div class="balloon b1"></div>
+<div class="balloon b2"></div>
+<div class="balloon b3"></div>
+<div class="balloon b4"></div>
+<div class="balloon b5"></div>
+
+<div class="star star1">✨</div>
+<div class="star star2">⭐</div>
+<div class="star star3">✨</div>
+<div class="star star4">⭐</div>
+<div class="star star5">✨</div>
+
+
+<!-- =========================================
+     QUIZ
+========================================= -->
+
+<div id="quiz">
+
+
+    <!-- START SCREEN -->
+
+    <div class="quiz-box" id="startScreen">
+
+        <h1>
+            🎁 Wait... Before We Start!
+        </h1>
+
+
+        <p id="startQuestion">
+
+            Can you answer a few questions first?
+            😎❤️
+
+        </p>
+
+
+        <div class="intro-buttons">
+
+
+            <button
+                class="yes-button"
+                onclick="startQuiz()"
+            >
+
+                ✅ YES
+
+            </button>
+
+
+            <button
+                class="no-button"
+                onclick="startNo()"
+            >
+
+                ❌ NO
+
+            </button>
+
+
+        </div>
+
+
+        <div id="startMessage"></div>
+
+    </div>
+
+
+
+    <!-- QUESTION SCREEN -->
+
+    <div
+        class="quiz-box"
+        id="questionScreen"
+        style="display:none;"
+    >
+
+
+        <h1>
+
+            🎁 Let's See...
+
+        </h1>
+
+
+        <p id="question">
+
+            Question
+
+        </p>
+
+
+        <input
+            type="text"
+            id="answer"
+            placeholder="Type your answer..."
+            autocomplete="off"
+        >
+
+
+        <br>
+
+
+        <button
+            id="quizButton"
+            onclick="checkAnswer()"
+        >
+
+            💙 Submit Answer
+
+        </button>
+
+
+        <div id="quizMessage"></div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================
+     MAIN MEMORY SECTION
+========================================= -->
+
+<div
+    class="container"
+    id="mainContent"
+    style="display:none;"
+>
+
+
+    <h1>
+
+        🎁 Something Special For You
+
+    </h1>
+
+
+    <img
+        id="photo"
+        class="photo"
+        src=""
+        alt="Birthday Memory"
+    >
+
+
+    <div id="message">
+
+        Get ready... 👀
+
+    </div>
+
+
+    <div id="readingNotice">
+
+        Read the message first... 👀
+
+    </div>
+
+
+    <div class="navigation">
+
+
+        <button
+            id="backButton"
+            class="back-button"
+            onclick="previousStep()"
+            style="display:none;"
+        >
+
+            ⬅️ Back
+
+        </button>
+
+
+        <button
+            id="nextButton"
+            class="next-button"
+            onclick="nextStep()"
+        >
+
+            💙 Open It
+
+        </button>
+
+
+    </div>
+
+
+
+    <!-- =========================================
+         FINAL MESSAGE
+    ========================================= -->
+
+    <div id="final">
+
+
+        <h2>
+
+            🎉 HAPPY BIRTHDAY CEDY! 🎂
+
+        </h2>
+
+
+        <p>
+
+            I made it through all photos
+            for you hope you like it! 😂❤️
+
+        </p>
+
+
+        <p>
+
+            Disclaimer pawang katuwaan lamang HAHA
+
+            <br><br>
+
+            I hope these photos brought back
+            some amazing memories.
+
+            <br><br>
+
+            You're not just a friend...
+
+            <br>
+
+            You're a brother. 🤝🔥
+
+            <br><br>
+
+            I hope you have an incredible
+            birthday and an amazing year ahead!
+
+            <br><br>
+
+            mag move on kana 🤣🤣,
+            or mag jowa kana 🤣🤣! 😎
+
+        </p>
+
+
+        <h2>
+
+            🎂🎉❤️
+
+        </h2>
+
+
+        <div id="thankYou">
+
+            Thank you for having fun with us!
+            ❤️😂
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================
+     COUNTDOWN
+========================================= -->
+
+<div id="countdownScreen">
+
+
+    <div id="countdownNumber">
+
+        3
+
+    </div>
+
+
+    <div id="countdownText">
+
+        Get ready... 🎉
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =========================================
+     BIG CELEBRATION
+========================================= -->
+
+<div id="bigCelebration">
+
+
+    <h1>
+
+        🎉🎂 HAPPY BIRTHDAY CEDY! 🎂🎉
+
+    </h1>
+
+
+    <p>
+
+        ❤️🥳🔥🎈✨
+
+    </p>
+
+
+</div>
+
+
+
+<script>
+
+
+/* =========================================
+   START NO BUTTON
+========================================= */
+
+let startNoCount = 0;
+
+
+function startNo() {
+
+
+    startNoCount++;
+
+
+    const message =
+        document.getElementById(
+            "startMessage"
+        );
+
+
+    const question =
+        document.getElementById(
+            "startQuestion"
+        );
+
+
+    if (startNoCount === 1) {
+
+        question.innerHTML =
+            "Why no? 😂 This is going to be fun!";
+
+    }
+
+
+    else if (startNoCount === 2) {
+
+        question.innerHTML =
+            "Why are you saying no again? 😭😂 Come on!";
+
+    }
+
+
+    else if (startNoCount === 3) {
+
+        question.innerHTML =
+            "Brooo... why no? We cannot start yet! 🤣";
+
+    }
+
+
+    else if (startNoCount === 4) {
+
+        question.innerHTML =
+            "Pleaseeee! Just click YES! 😂❤️";
+
+    }
+
+
+    else {
+
+        question.innerHTML =
+            "Okay, enough NO! 🤣 We need a YES to continue!";
+
+    }
+
+
+    message.innerHTML =
+        "❌ You clicked NO!";
+
+
+    message.className =
+        "wrong";
+
+}
+
+
+
+/* =========================================
+   START QUIZ
+========================================= */
+
+function startQuiz() {
+
+
+    document.getElementById(
+        "startScreen"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "questionScreen"
+    ).style.display = "block";
+
+
+    quizStep = 0;
+
+
+    showQuestion();
+
+}
+
+
+
+/* =========================================
+   QUESTIONS
+========================================= */
+
+const questions = [
+
+
+    {
+
+        question:
+            "Sino mona love mo? 😂",
+
+        answers:
+            [
+                "jai",
+                "room5",
+                "ja"
+            ]
+
+    },
+
+
+    {
+
+        question:
+            "Love ka ba niya? 😂",
+
+        answers:
+            [
+                "yes",
+                "y",
+                "oo"
+            ]
+
+    },
+
+
+    {
+
+        question:
+            "Masaya kaba sa anong meron sa inyo? 😂❤️",
+
+        answers:
+            [
+                "yes",
+                "y",
+                "oo"
+            ]
+
+    }
+
+
+];
+
+
+
+let quizStep = 0;
+
+
+/* =========================================
+   RESPONSE COUNTERS
+========================================= */
+
+let loveNoCount = 0;
+
+let happyNoCount = 0;
+
+
+
+/* =========================================
+   SHOW QUESTION
+========================================= */
+
+function showQuestion() {
+
+
+    const question =
+        document.getElementById(
+            "question"
+        );
+
+
+    const answerInput =
+        document.getElementById(
+            "answer"
+        );
+
+
+    const message =
+        document.getElementById(
+            "quizMessage"
+        );
+
+
+    question.textContent =
+        questions[quizStep].question;
+
+
+    answerInput.value = "";
+
+
+    message.textContent = "";
+
+
+    message.className = "";
+
+
+    answerInput.focus();
+
+}
+
+
+
+/* =========================================
+   CHECK ANSWER
+========================================= */
+
+function checkAnswer() {
+
+
+    const answerInput =
+        document.getElementById(
+            "answer"
+        );
+
+
+    const message =
+        document.getElementById(
+            "quizMessage"
+        );
+
+
+    const userAnswer =
+        answerInput.value
+            .trim()
+            .toLowerCase();
+
+
+
+    /* EMPTY ANSWER */
+
+    if (userAnswer === "") {
+
+        message.textContent =
+            "😂 Type something first!";
+
+        message.className =
+            "wrong";
+
+        return;
+
+    }
+
+
+
+    /* =====================================
+       QUESTION 1
+       SINO MONA LOVE MO?
+    ===================================== */
+
+    if (quizStep === 0) {
+
+
+        if (
+            questions[0].answers
+                .includes(userAnswer)
+        ) {
+
+
+            message.textContent =
+                "✅ Ayan! Alam na namin! 😂❤️";
+
+
+            message.className =
+                "correct";
+
+
+            setTimeout(
+                function() {
+
+                    quizStep++;
+
+                    showQuestion();
+
+                },
+                800
+            );
+
+        }
+
+
+        else {
+
+
+            loveNoCount++;
+
+
+            if (loveNoCount === 1) {
+
+                message.textContent =
+                    "😂 Anong wala? Meron diba?!";
+
+            }
+
+
+            else if (loveNoCount === 2) {
+
+                message.textContent =
+                    "🤣 Wag ka nga! Alam namin meron!";
+
+            }
+
+
+            else if (loveNoCount === 3) {
+
+                message.textContent =
+                    "😂 Huwag kang mag-deny! Meron yan!";
+
+            }
+
+
+            else if (loveNoCount === 4) {
+
+                message.textContent =
+                    "😭 Brooo... sabihin mo na kasi!";
+
+            }
+
+
+            else {
+
+                message.textContent =
+                    "🤣 Tama na ang pag-deny! Jai / Room5 / Ja lang ang tamang sagot! ❤️";
+
+            }
+
+
+            message.className =
+                "wrong";
+
+
+            answerInput.value = "";
+
+
+            answerInput.focus();
+
+        }
+
+
+        return;
+
+    }
+
+
+
+    /* =====================================
+       QUESTION 2
+       LOVE KA BA NIYA?
+    ===================================== */
+
+    if (quizStep === 1) {
+
+
+        if (
+            questions[1].answers
+                .includes(userAnswer)
+        ) {
+
+
+            message.textContent =
+                "✅ Ayan! YES! Alam namin yan! 😂❤️";
+
+
+            message.className =
+                "correct";
+
+
+            loveNoCount = 0;
+
+
+            setTimeout(
+                function() {
+
+                    quizStep++;
+
+                    showQuestion();
+
+                },
+                800
+            );
+
+        }
+
+
+        else {
+
+
+            if (
+                userAnswer === "no" ||
+                userAnswer === "n" ||
+                userAnswer === "hindi"
+            ) {
+
+                loveNoCount++;
+
+
+                if (loveNoCount === 1) {
+
+                    message.textContent =
+                        "🤣 Wee di ako sure dyan!";
+
+                }
+
+
+                else if (loveNoCount === 2) {
+
+                    message.textContent =
+                        "😂 Hala, bakit NO? Sure ka ba?";
+
+                }
+
+
+                else if (loveNoCount === 3) {
+
+                    message.textContent =
+                        "😭 Brooo... YES daw dapat!";
+
+                }
+
+
+                else if (loveNoCount === 4) {
+
+                    message.textContent =
+                        "🤣 Ilang NO pa ba kailangan bago ka umamin?";
+
+                }
+
+
+                else {
+
+                    message.textContent =
+                        "😂 Hindi kami papayag! Answer YES! ❤️";
+
+                }
+
+            }
+
+
+            else {
+
+                message.textContent =
+                    "🤣 Wee di ako sure dyan!";
+
+            }
+
+
+            message.className =
+                "wrong";
+
+
+            answerInput.value = "";
+
+
+            answerInput.focus();
+
+        }
+
+
+        return;
+
+    }
+
+
+
+    /* =====================================
+       QUESTION 3
+       MASAYA KA BA?
+    ===================================== */
+
+    if (quizStep === 2) {
+
+
+        if (
+            questions[2].answers
+                .includes(userAnswer)
+        ) {
+
+
+            message.textContent =
+                "✅ Ayan! Inamin na 😂❤️";
+
+
+            message.className =
+                "correct";
+
+
+            happyNoCount = 0;
+
+
+            setTimeout(
+                function() {
+
+                    startCountdown();
+
+                },
+                1000
+            );
+
+        }
+
+
+        else {
+
+
+            happyNoCount++;
+
+
+            if (
+                userAnswer === "no" ||
+                userAnswer === "n" ||
+                userAnswer === "hindi"
+            ) {
+
+
+                if (happyNoCount === 1) {
+
+                    message.textContent =
+                        "😂 Huwag ka mag-deny! Masaya ka naman eh!";
+
+                }
+
+
+                else if (happyNoCount === 2) {
+
+                    message.textContent =
+                        "🤣 Sure ka? Mukhang masaya naman kayo!";
+
+                }
+
+
+                else if (happyNoCount === 3) {
+
+                    message.textContent =
+                        "😭 Aminin mo na kasi! ";
+
+                }
+
+
+                else if (happyNoCount === 4) {
+
+                    message.textContent =
+                        "😂 Last chance na! Aminin mo na!";
+
+                }
+
+
+                else {
+
+                    message.textContent =
+                        "🤣 Hindi tayo aalis dito hangga't hindi mo sinasabing YES! ❤️";
+
+                }
+
+            }
+
+
+            else if (
+                userAnswer === "ewan" ||
+                userAnswer === "di ko alam" ||
+                userAnswer === "diko alam" ||
+                userAnswer === "idk"
+            ) {
+
+
+                message.textContent =
+                    "😂 Aminin mo na! Masaya ka! ❤️";
+
+            }
+
+
+            else {
+
+
+                message.textContent =
+                    "🤣 Aminin mo na! Masaya ka! 😁";
+
+            }
+
+
+            message.className =
+                "wrong";
+
+
+            answerInput.value = "";
+
+
+            answerInput.focus();
+
+        }
+
+    }
+
+}
+
+
+
+/* =========================================
+   ENTER KEY
+========================================= */
+
+document
+    .getElementById("answer")
+    .addEventListener(
+        "keydown",
+        function(event) {
+
+            if (event.key === "Enter") {
+
+                checkAnswer();
+
+            }
+
+        }
+    );
+
+
+
+/* =========================================
+   COUNTDOWN
+========================================= */
+
+function startCountdown() {
+
+
+    const mainContent =
+        document.getElementById(
+            "mainContent"
+        );
+
+
+    mainContent.style.display =
+        "none";
+
+
+    document.getElementById(
+        "quiz"
+    ).style.display =
+        "none";
+
+
+    const countdown =
+        document.getElementById(
+            "countdownScreen"
+        );
+
+
+    countdown.style.display =
+        "flex";
+
+
+    let number = 3;
+
+
+    const numberElement =
+        document.getElementById(
+            "countdownNumber"
+        );
+
+
+    const textElement =
+        document.getElementById(
+            "countdownText"
+        );
+
+
+
+    function showNumber() {
+
+
+        numberElement.style.animation =
+            "none";
+
+
+        void numberElement.offsetWidth;
+
+
+        numberElement.style.animation =
+            "countdownPop 0.8s ease";
+
+
+
+        if (number >= 1) {
+
+
+            numberElement.textContent =
+                number;
+
+
+            textElement.textContent =
+                "Get ready... 🎉";
+
+
+            number--;
+
+
+            setTimeout(
+                showNumber,
+                1000
+            );
+
+        }
+
+
+        else {
+
+
+            numberElement.textContent =
+                "GO! 🎉";
+
+
+            textElement.textContent =
+                "Let's go! ❤️";
+
+
+            setTimeout(
+                function() {
+
+
+                    countdown.style.display =
+                        "none";
+
+
+                    mainContent.style.display =
+                        "block";
+
+
+                    currentStep = 1;
+
+
+                    showMemory();
+
+
+                },
+                1200
+            );
+
+        }
+
+    }
+
+
+    showNumber();
+
+}
+
+
+
+/* =========================================
+   YOUR 20 PHOTOS
+========================================= */
+
+const photos = [
+
+    "he.jpeg",
+    "do.jpeg",
+    "me.jpeg",
+    "him.jpeg",
+    "his.jpeg",
+    "she.jpeg",
+    "you.jpeg",
+    "hi.jpeg",
+    "er.jpeg",
+    "sh.jpeg",
+    "as.jpeg",
+    "ha.jpeg",
+
+    "bts.jpeg",
+    "ey.jpeg",
+    "da.jpeg",
+    "hm.jpeg",
+    "jai.jpeg",
+    "yey.jpeg",
+    "ced.jpeg",
+    "en.jpeg"
+
+];
+
+
+
+/* =========================================
+   YOUR 20 MESSAGES
+========================================= */
+
+const messages = [
+
+    "Taray sino ka namn dyan! 😂✌️",
+
+    "Paulo avelino is that you? 😎",
+
+    "123 Smile! 😂",
+
+    "Lungkot yarn? punta ka mona kay Jai para dika na ma sad! 🤣🤝",
+
+    "Apaka angas, kaya love na love ka ni Jai eh. 🤣❤️",
+
+    "Uy galaw galaw namn HAHAH 🤣. 😎",
+
+    "Parang Jericho Rosales ang pormahan 😂",
+
+    "BTS ng Pinas 😁",
+
+    "Selfie kananaman ha! 🤣",
+
+    "Panahong wala pa siya sa buhay mo 🤣! 🎂",
+
+    "Saan punta natin? 🤣kanino kaya galing tong pic nato? 🎂",
+
+    "Anak niyo ba yarn? kayo ha palihim lng 😂🔥",
+
+    "Eto yung mukhang walang problema sa buhay... sana all! 🤣❤️",
+
+    "Bro, certified pogi moment na naman! 😎🔥",
+
+    "Ahem date yarn! 😂",
+
+    "Another legendary memory unlocked! 🤣❤️",
+
+    "Ngiting tagumpay na nanalo sa lotto 😂🔥",
+
+    "Kayo ha lumalabas kayo na kayo lang, di niyo kami inaya 😂🔥",
+
+    "Sabi ni ate Jo kailan dw ang kasal? 😂",
+
+    "Happy Birthday pogi from procurement team and Quality 🎉🎂❤️🔥"
+
+];
+
+
+
+/* =========================================
+   MEMORY VARIABLES
+========================================= */
+
+let currentStep = 0;
+
+
+/* =========================================
+   READING TIMER VARIABLES
+========================================= */
+
+let canGoNext = false;
+
+let readingTimer = null;
+
+let readingSeconds = 10;
+
+
+
+/* =========================================
+   NEXT BUTTON
+========================================= */
+
+function nextStep() {
+
+
+    if (!canGoNext) {
+
+
+        const notice =
+            document.getElementById(
+                "readingNotice"
+            );
+
+
+        notice.textContent =
+            "😂 Oh no! You didn't even read the message! Read it first!";
+
+
+        notice.className =
+            "warning";
+
+
+        setTimeout(
+            function() {
+
+                notice.className = "";
+
+            },
+            1000
+        );
+
+
+        return;
+
+    }
+
+
+
+    if (currentStep < 20) {
+
+
+        currentStep++;
+
+
+        showMemory();
+
+
+        return;
+
+    }
+
+
+
+    if (currentStep === 20) {
+
+
+        showFinal();
+
+    }
+
+}
+
+
+
+/* =========================================
+   SHOW MEMORY
+========================================= */
+
+function showMemory() {
+
+
+    const photo =
+        document.getElementById(
+            "photo"
+        );
+
+
+    const message =
+        document.getElementById(
+            "message"
+        );
+
+
+    const nextButton =
+        document.getElementById(
+            "nextButton"
+        );
+
+
+    const backButton =
+        document.getElementById(
+            "backButton"
+        );
+
+
+    const notice =
+        document.getElementById(
+            "readingNotice"
+        );
+
+
+
+    if (readingTimer) {
+
+
+        clearInterval(
+            readingTimer
+        );
+
+
+    }
+
+
+
+    canGoNext = false;
+
+
+    readingSeconds = 10;
+
+
+
+    /* PHOTO */
+
+    photo.style.animation =
+        "none";
+
+
+    void photo.offsetWidth;
+
+
+    photo.style.animation =
+        "appear 0.7s ease";
+
+
+    photo.src =
+        photos[currentStep - 1];
+
+
+    photo.style.display =
+        "block";
+
+
+
+    /* MESSAGE */
+
+    message.style.animation =
+        "none";
+
+
+    void message.offsetWidth;
+
+
+    message.style.animation =
+        "appear 0.7s ease";
+
+
+    message.innerHTML =
+        messages[currentStep - 1];
+
+
+    message.style.display =
+        "block";
+
+
+
+    /* BACK BUTTON */
+
+    if (currentStep > 1) {
+
+
+        backButton.style.display =
+            "inline-block";
+
+    }
+
+
+    else {
+
+
+        backButton.style.display =
+            "none";
+
+    }
+
+
+
+    /* NEXT BUTTON */
+
+    nextButton.style.display =
+        "inline-block";
+
+
+    nextButton.classList.add(
+        "disabled"
+    );
+
+
+    nextButton.innerHTML =
+        "⏳ Please Read...";
+
+
+
+    /* READING TIMER */
+
+    updateReadingNotice();
+
+
+
+    readingTimer =
+        setInterval(
+            function() {
+
+
+                readingSeconds--;
+
+
+                updateReadingNotice();
+
+
+
+                if (
+                    readingSeconds <= 0
+                ) {
+
+
+                    clearInterval(
+                        readingTimer
+                    );
+
+
+                    readingTimer = null;
+
+
+                    canGoNext = true;
+
+
+
+                    nextButton.classList.remove(
+                        "disabled"
+                    );
+
+
+
+                    if (
+                        currentStep < 20
+                    ) {
+
+
+                        nextButton.innerHTML =
+                            "➡️ Next";
+
+                    }
+
+
+                    else {
+
+
+                        nextButton.innerHTML =
+                            "🎉 Finish";
+
+                    }
+
+
+
+                    notice.textContent =
+                        "✅ Okay! You can continue now ❤️";
+
+
+                    notice.className =
+                        "ready";
+
+                }
+
+
+            },
+            1000
+        );
+
+}
+
+
+
+/* =========================================
+   READING TIMER DISPLAY
+========================================= */
+
+function updateReadingNotice() {
+
+
+    const notice =
+        document.getElementById(
+            "readingNotice"
+        );
+
+
+    if (readingSeconds > 0) {
+
+
+        notice.textContent =
+            "👀 Read the message first... " +
+            readingSeconds +
+            " seconds";
+
+
+        notice.className = "";
+
+    }
+
+}
+
+
+
+/* =========================================
+   BACK BUTTON
+========================================= */
+
+function previousStep() {
+
+
+    if (currentStep <= 1) {
+
+
+        return;
+
+    }
+
+
+    currentStep--;
+
+
+    showMemory();
+
+}
+
+
+
+/* =========================================
+   FINAL MESSAGE
+========================================= */
+
+function showFinal() {
+
+
+    if (readingTimer) {
+
+
+        clearInterval(
+            readingTimer
+        );
+
+
+        readingTimer = null;
+
+    }
+
+
+
+    document.getElementById(
+        "photo"
+    ).style.display =
+        "none";
+
+
+
+    document.getElementById(
+        "message"
+    ).style.display =
+        "none";
+
+
+
+    document.getElementById(
+        "readingNotice"
+    ).style.display =
+        "none";
+
+
+
+    document.getElementById(
+        "nextButton"
+    ).style.display =
+        "none";
+
+
+
+    document.getElementById(
+        "backButton"
+    ).style.display =
+        "none";
+
+
+
+    document.getElementById(
+        "final"
+    ).style.display =
+        "block";
+
+
+
+    createConfetti();
+
+
+
+    setTimeout(
+        showBigCelebration,
+        3500
+    );
+
+}
+
+
+
+/* =========================================
+   BIG CELEBRATION
+========================================= */
+
+function showBigCelebration() {
+
+
+    const celebration =
+        document.getElementById(
+            "bigCelebration"
+        );
+
+
+    celebration.style.display =
+        "flex";
+
+
+    createConfetti();
+
+
+
+    setTimeout(
+        function() {
+
+
+            celebration.style.display =
+                "none";
+
+
+        },
+        4500
+    );
+
+}
+
+
+
+/* =========================================
+   CONFETTI
+========================================= */
+
+function createConfetti() {
+
+
+    const emojis = [
+
+        "🎉",
+        "🎊",
+        "🎈",
+        "✨",
+        "⭐",
+        "🥳",
+        "❤️",
+        "🎂",
+        "🔥"
+
+    ];
+
+
+
+    for (
+        let i = 0;
+        i < 100;
+        i++
+    ) {
+
+
+        let confetti =
+            document.createElement(
+                "div"
+            );
+
+
+        confetti.innerHTML =
+            emojis[
+                Math.floor(
+                    Math.random()
+                    *
+                    emojis.length
+                )
+            ];
+
+
+        confetti.style.position =
+            "fixed";
+
+
+        confetti.style.left =
+            Math.random()
+            *
+            100 +
+            "vw";
+
+
+        confetti.style.top =
+            "-30px";
+
+
+        confetti.style.fontSize =
+            (
+                15 +
+                Math.random()
+                *
+                20
+            ) +
+            "px";
+
+
+        confetti.style.zIndex =
+            "300";
+
+
+        document.body.appendChild(
+            confetti
+        );
+
+
+        const animation =
+            confetti.animate(
+
+                [
+
+                    {
+
+                        transform:
+                            "translateY(0) rotate(0deg)",
+
+                        opacity: 1
+
+                    },
+
+                    {
+
+                        transform:
+                            "translateY(110vh) rotate(720deg)",
+
+                        opacity: 0
+
+                    }
+
+                ],
+
+                {
+
+                    duration:
+                        2500 +
+                        Math.random()
+                        *
+                        3000,
+
+                    easing:
+                        "linear"
+
+                }
+
+            );
+
+
+        animation.onfinish =
+            function() {
+
+                confetti.remove();
+
+            };
+
+    }
+
+}
+
+</script>
+
+</body>
+
+</html>
